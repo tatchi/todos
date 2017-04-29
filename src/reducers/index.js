@@ -16,3 +16,7 @@ export const getIsFetching = (state, filter) => {
   return fromTodos.getIsFetching(state.todos, filter);
 };
 
+export const getErrorMessage = (state, filter) => {
+  return fromTodos.getErrorMessage(state.todos, filter);
+};
+

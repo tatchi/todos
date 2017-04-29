@@ -2,6 +2,7 @@ import { throttle } from 'lodash';
 import { createStore, applyMiddleware } from 'redux';
 import promise from 'redux-promise';
 import { createLogger } from 'redux-logger'
+import thunk from 'redux-thunk';
 import { composeWithDevTools  } from 'redux-devtools-extension';
 import todoApp from './reducers';
 import App from './components/App';
@@ -43,7 +44,7 @@ import { loadState, saveState } from './localStorage';
 const configureStore = () => {
   //const persistedState = loadState();
   //const store = createStore(todoApp, persistedState, devToolsEnhancer());
-  const middlewares = [promise];
+  const middlewares = [thunk];
   // const store = createStore(todoApp, devToolsEnhancer());
 
   if (process.env.NODE_ENV !== 'production') {
