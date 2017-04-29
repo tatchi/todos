@@ -13,11 +13,12 @@ const addLoggingToDispatch = store => {
 
   return action => {
     console.group(action.type);
-    console.log(`%c prev state: ${store.getState()}`, 'color: gey');
-    console.log(`action: ${action}`, 'color: blue');
+    console.log('%c prev state', 'color: gray', store.getState());
+    console.log('%c action', 'color: blue', action);
     const returnValue = rawDispatch(action);
-    console.log(`next state: ${store.getState()}`, 'color: green');
+    console.log('%c next state', 'color: green', store.getState());
     console.groupEnd(action.type);
+    return returnValue;
   };
 };
 
