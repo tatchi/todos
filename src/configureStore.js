@@ -23,12 +23,14 @@ const addLoggingToDispatch = store => {
 };
 
 const configureStore = () => {
-  const persistedState = loadState();
-  const store = createStore(todoApp, persistedState, devToolsEnhancer());
+  //const persistedState = loadState();
+  //const store = createStore(todoApp, persistedState, devToolsEnhancer());
 
-  if (process.env.NODE_ENV !== 'production') {
-    store.dispatch = addLoggingToDispatch(store);
-  }
+  const store = createStore(todoApp, devToolsEnhancer());
+
+  // if (process.env.NODE_ENV !== 'production') {
+  //   store.dispatch = addLoggingToDispatch(store);
+  // }
 
   store.subscribe(
     throttle(() => {
