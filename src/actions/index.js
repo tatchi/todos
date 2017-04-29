@@ -12,10 +12,13 @@ export const addTodo = text => dispatch =>
     });
   });
 
-export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
-  id,
-});
+export const toggleTodo = id => dispatch =>
+  api.toggleTodo(id).then(response => {
+    dispatch({
+      type: 'TOGGLE_TODO_SUCCESS',
+      response: normalize(response, schema.todo),
+    });
+  });
 
 export const fetchTodos = filter => (dispatch, getState) => {
   if (getIsFetching(getState(), filter)) {
@@ -29,7 +32,7 @@ export const fetchTodos = filter => (dispatch, getState) => {
 
   return api.fetchTodos(filter).then(
     response => {
-      // console.log('normalized response', normalize(response, schema.arrayOfTodos));  
+      // console.log('normalized response', normalize(response, schema.arrayOfTodos));
       dispatch({
         type: 'FETCH_TODOS_SUCCESS',
         filter,
