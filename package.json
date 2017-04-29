@@ -34,6 +34,8 @@
     "eslint-plugin-jsx-a11y": "^1.0.4",
     "eslint-plugin-react": "^5.0.1",
     "express": "^4.13.3",
+    "redux-devtools": "^3.4.0",
+    "redux-devtools-extension": "^2.13.0",
     "webpack": "^1.9.11",
     "webpack-dev-middleware": "^1.2.0"
   }
